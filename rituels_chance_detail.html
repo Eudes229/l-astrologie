@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Rituels de Chance et de Déblocage - Astrologie</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/plugin/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/js/plugin/airdatepicker/datepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="assets/images/lelogo.png" type="image/x-icon">
+
+    <!-- Styles personnalisés pour cette page de détail -->
+    <style>
+        .as_service_detail_wrapper .as_service_detail_content h2 {
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #ff9800; /* Couleur orange du thème */
+        }
+        .as_service_detail_wrapper .as_service_detail_content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        .as_service_detail_wrapper .as_service_detail_content li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .as_service_detail_wrapper .as_service_detail_content li::before {
+            content: '✓'; /* Symbole de coche */
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #ff9800; /* Couleur orange */
+            font-weight: bold;
+        }
+        .as_breadcumb_wrapper {
+            background-image: url('assets/images/breadcumb_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 0;
+        }
+        .as_breadcumb_wrapper h1 {
+            color: #ffffff;
+            font-size: 40px;
+        }
+        .as_breadcumb_ul {
+            padding: 0;
+            margin-top: 10px;
+        }
+        .as_breadcumb_ul li {
+            display: inline-block;
+            color: #ffffff;
+        }
+        .as_breadcumb_ul li a {
+            color: #ff9800;
+        }
+        .as_widget_title {
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ff9800;
+            padding-bottom: 10px;
+        }
+        .as_service_list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .as_service_list li {
+            margin-bottom: 15px;
+            padding-left: 0; 
+        }
+         .as_service_list li::before {
+            content: none; 
+        }
+        .as_service_list li a {
+            color: #ccc;
+            display: block;
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        .as_service_list li.active a,
+        .as_service_list li a:hover {
+            background-color: rgba(255, 152, 0, 0.1);
+            color: #ff9800;
+            border-left: 3px solid #ff9800;
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="as_loader">
+        <img src="assets/images/lelogo.png" alt="" class="img-responsive">
+    </div> 
+    <div class="as_main_wrapper">
+        <section class="as_header_wrapper">
+            <div class="as_logo">
+                <a href="index.html"><img src="assets/images/lelogo.png" alt=""></a>
+            </div>
+            <div class="as_header_detail">
+                <div class="as_info_detail">
+                    <ul>
+                        <li>
+                            <a href="javascript:;">
+                                <div class="as_infobox">
+                                    <span class="as_infoicon">
+                                        <img src="assets/images/svg/headphone.svg" alt="">
+                                    </span>
+                                <span class="as_orange">Discutez avec nos astrologues -</span>+22384876466
+                                </div>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="javascript:;">
+                                <div class="as_infobox">
+                                    <span class="as_infoicon">
+                                        <img src="assets/images/svg/mail1.svg" alt="">
+                                    </span>
+                                <span class="as_orange">Discutez avec nos astrologues -</span><span class="__cf_email__" data-cfemail="4a393f3a3a25383e0a3d2f2839233e2f64292527">[adresse email protégée]</span>
+                                </div>
+                            </a>
+                        </li> -->
+                    </ul>
+                    <div class="as_right_info">
+                        <a href="javascript:;">
+                            <div class="as_infobox" data-bs-toggle="modal" data-bs-target="#as_login">
+                                <span class="as_infoicon">
+                                    <img src="assets/images/svg/login.svg" alt="">
+                                </span>
+                                <span class="as_logintext">Se connecter / S’inscrire</span>
+                            </div>
+                        </a>
+                        <!-- <div class="as_cart">
+                            <div class="as_cart_wrapper">
+                                <span><img src="assets/images/svg/cart.svg" alt=""><span class="as_cartnumber">02</span></span>
+                                $512
+                            </div>
+
+                            <div class="as_cart_box">
+								<div class="as_cart_list">
+									<ul>
+										<li>
+											<div class="as_cart_img">
+												<img src="assets/images/prod1_d.jpg" class="img-responsive">
+											</div>
+											<div class="as_cart_info">
+												<a href="#">Yellow Sapphire</a>
+												<p>1 X $20.00</p>
+												<a href="javascript:;" class="as_cart_remove"><i class="fa fa-trash"></i></a>
+											</div>
+										</li>
+										<li>
+											<div class="as_cart_img">
+												<img src="assets/images/prod2_D.html" class="img-responsive">
+											</div>
+											<div class="as_cart_info">
+												<a href="#">yantra</a>
+												<p>1 X $10.00</p>
+												<a href="javascript:;" class="as_cart_remove"><i class="fa fa-trash"></i></a>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="as_cart_total">
+									<p>total<span>$30.00</span></p>
+								</div>
+								<div class="as_cart_btn">
+									<button type="button" class="as_btn">panier</button>
+									<button type="button" class="as_btn">valider la commande</button>
+								</div>
+							</div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="as_menu_wrapper">
+                    <span class="as_toggle bg_overlay">
+                        <img src="assets/images/svg/menu.svg" alt="">
+                    </span>
+                    <div class="as_menu">
+                        <ul>
+                            <li><a href="index.html">Acceuil</a></li>
+                            <li><a href="about.html">À propos</a></li>
+                            <li><a href="service.html" class="active">services</a></li>
+                            <li><a href="javascript:;">blog</a>
+                                <ul class="as_submenu">
+                                    <li><a href="blog.html">blog</a></li>
+                                    <li><a href="javascript:;">Article de blog</a>
+                                        <ul class="as_submenu">
+                                            <!-- <li><a href="blog_left_detail.html">Barre latérale gauche</a></li> -->
+                                            <li><a href="blog_detail.html">Barre latérale droite</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="appointment.html">Rendez-vous</a></li>
+                            <li><a href="javascript:;">Boutique</a>
+                                <ul class="as_submenu">
+                                    <li><a href="shop.html">Boutique</a></li>
+                                    <!-- <li><a href="shop_single.html">Fiche produit</a></li>
+                                    <li><a href="cart.html">Panier</a></li>
+                                    <li><a href="checkout.html">Paiement</a></li> -->
+                                </ul>
+                            </li>
+                            <li><a href="javascript:;">pages</a>
+                                <ul class="as_submenu">
+                                    <!-- <li><a href="astrologer.html">Astrologie</a></li> -->
+                                    <li><a href="privacy_policy.html">Politique de confidentialité</a></li>
+                                    <li><a href="error.html">404</a></li>
+                                    <li><a href="faq.html">faq</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contact.html">contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="as_search_wrapper">
+                        <img src="assets/images/search.png" alt="" class="as_search">
+
+                        <div class="as_search_boxpopup">
+    <a href="javascript:;" class="as_cancel">...</a> <!-- Gardez le SVG du bouton fermer -->
+    <div class="as_search_inner">
+        <!-- TRANSFORMATION EN FORMULAIRE DE RECHERCHE -->
+        <form action="search-results.html" method="GET">
+            <div class="as_search_widget">
+                <input type="text" name="q" class="form-control" placeholder="Rechercher sur le site..." required>
+                <button type="submit" style="background: none; border: none; padding: 0;">
+                    <img src="assets/images/svg/search.svg" alt="Rechercher">
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+                    </div>
+                </div>
+                <span class="as_body_overlay"></span>
+            </div>  
+        </section> 
+
+        <!-- Bannière de titre de la page -->
+        <section class="as_breadcumb_wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h1>Rituels de Chance et de Déblocage</h1>
+                        <ul class="as_breadcumb_ul">
+                            <li><a href="index.html">Accueil</a></li>
+                            <li>/</li>
+                            <li><a href="service.html">Services</a></li>
+                            <li>/</li>
+                            <li><span>Rituels de Chance et de Déblocage</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contenu principal de la page -->
+        <section class="as_service_detail_wrapper as_padderTop80 as_padderBottom80">
+            <div class="container">
+                <div class="row">
+                    <!-- Colonne principale avec les détails du service -->
+                    <div class="col-lg-8 col-md-12">
+                        <div class="as_service_detail_content">
+                            <img src="assets/images/rituels.jpg" alt="Rituels de chance" class="img-responsive as_padderBottom30" style="border-radius: 10px; width:100%;">
+
+                            <h1 class="as_heading">Attirez la chance et levez les blocages grâce à des rituels puissants</h1>
+                            <p>Dans la vie, nous rencontrons tous des périodes où les choses semblent stagner, où la chance nous fuit et où des obstacles invisibles se dressent sur notre chemin. Les rituels de chance et de déblocage sont des pratiques spirituelles ancestrales conçues pour nettoyer les énergies négatives, attirer les influences positives et restaurer l'harmonie dans votre vie.</p>
+                            <p>Ces remèdes, souvent inspirés de traditions comme le Lal Kitab, ne sont pas de la magie, mais des actions symboliques puissantes qui réalignent votre énergie personnelle avec les forces universelles de l'abondance et de la réussite.</p>
+
+                            <h2>Pourquoi utiliser des rituels ?</h2>
+                            <p>Les rituels agissent à plusieurs niveaux pour transformer votre réalité :</p>
+                            <ul>
+                                <li><strong>Nettoyage Énergétique :</strong> Ils purifient votre aura et votre environnement des énergies stagnantes ou négatives qui peuvent être la source de malchance ou de blocages.</li>
+                                <li><strong>Focalisation de l'Intention :</strong> En accomplissant un rituel, vous concentrez votre volonté et votre énergie sur un objectif précis (chance, amour, prospérité), envoyant un message clair à l'Univers.</li>
+                                <li><strong>Harmonisation Planétaire :</strong> Nos rituels sont conçus pour apaiser les influences planétaires défavorables révélées par votre thème astral et renforcer les plus bénéfiques.</li>
+                                <li><strong>Renforcement de la Confiance :</strong> Le simple fait de poser un acte concret pour améliorer votre situation renforce votre confiance en vous et votre optimisme.</li>
+                            </ul>
+
+                            <h2>Nos services de rituels personnalisés</h2>
+                            <p>Chaque situation est unique. C'est pourquoi nous ne proposons pas de solutions toutes faites. Nos experts analysent votre thème natal et votre situation actuelle pour vous prescrire des rituels (upayas) entièrement personnalisés. Voici quelques domaines où nos rituels peuvent vous aider :</p>
+                            <ul>
+                                <li><strong>Attirer la Prospérité Financière :</strong> Pour débloquer des situations financières difficiles et ouvrir les portes de l'abondance.</li>
+                                <li><strong>Améliorer la Vie Amoureuse :</strong> Pour attirer un partenaire, renforcer une relation existante ou surmonter des conflits.</li>
+                                <li><strong>Booster la Carrière Professionnelle :</strong> Pour obtenir une promotion, trouver un emploi ou réussir dans vos projets.</li>
+                                <li><strong>Protéger contre les Négativités :</strong> Pour vous défendre contre le mauvais œil, la jalousie et les énergies néfastes.</li>
+                                <li><strong>Améliorer la Santé et le Bien-être :</strong> Pour soutenir votre vitalité et retrouver une énergie positive.</li>
+                            </ul>
+                            
+                            <h2 class="as_padderTop20">Démarrez votre transformation</h2>
+                            <p>N'attendez plus que la chance tourne. Prenez les rênes de votre destin. Une consultation avec nos experts vous permettra de comprendre les racines de vos blocages et d'obtenir des remèdes simples, concrets et puissants pour transformer positivement votre vie.</p>
+                            <a href="appointment.html" class="as_btn">Prendre rendez-vous</a>
+                        </div>
+                    </div>
+
+                    <!-- Colonne latérale (Sidebar) -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="as_blog_widget as_padderBottom30 as_service_list">
+                            <h3 class="as_widget_title">Nos Autres Services</h3>
+                            <ul>
+                                <li><a href="service_detail.html">Vastu Shastra</a></li>
+                                <li><a href="jours_naissance.html">Signification des Jours de Naissance</a></li>
+                                <li><a href="numérologie.html">Numérologie</a></li>
+                                <li class="active"><a href="rituels_chance_detail.html">Rituels de Chance et de Déblocage</a></li>
+                                <li><a href="boule_de_cristal_detail.html">Boule de Cristal</a></li>
+                                <li><a href="geomancie.html">Géomancie</a></li>
+                                <li><a href="lecture_tarot_detail.html">Lecture Du Tarot</a></li>
+                                <li><a href="chiromancie.html">Chiromancie</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="as_contact_expert">
+                            <span class="as_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="20" height="20" viewBox="0 0 20 20"> <defs><style>.cls-1{fill:#fff;fill-rule:evenodd}</style></defs> <path d="M19.797,10.487 C19.668,10.616 19.493,10.689 19.310,10.689 C18.929,10.689 18.620,10.380 18.620,9.999 C18.615,5.241 14.759,1.385 10.000,1.379 C9.619,1.379 9.310,1.070 9.310,0.689 C9.310,0.308 9.619,-0.000 10.000,-0.000 C15.520,0.006 19.993,4.478 19.999,9.999 C19.999,10.183 19.927,10.358 19.797,10.487 ZM15.172,9.999 C15.169,7.144 12.855,4.830 10.000,4.827 C9.619,4.827 9.310,4.518 9.310,4.138 C9.310,3.757 9.619,3.448 10.000,3.448 C13.617,3.452 16.547,6.383 16.551,9.999 C16.551,10.380 16.243,10.689 15.862,10.689 C15.481,10.689 15.172,10.380 15.172,9.999 ZM12.864,14.155 C13.076,14.182 13.288,14.109 13.438,13.957 L14.982,12.413 C15.209,12.186 15.563,12.146 15.835,12.317 L19.655,14.775 C19.955,14.965 20.063,15.350 19.905,15.668 L18.045,19.616 C17.918,19.873 17.645,20.024 17.360,19.995 C15.394,19.789 10.563,18.932 5.815,14.183 C1.067,9.435 0.210,4.604 0.003,2.638 C-0.026,2.352 0.125,2.079 0.382,1.952 L4.331,0.093 C4.649,-0.067 5.036,0.043 5.224,0.344 L7.684,4.164 C7.854,4.436 7.814,4.790 7.586,5.017 L6.042,6.560 C5.890,6.711 5.818,6.924 5.845,7.135 C5.942,7.900 6.373,9.809 8.282,11.718 C10.191,13.627 12.099,14.057 12.864,14.155 Z" class="cls-1"/> </svg>
+                            </span>
+                            <div>
+                                <h5 class="as_white">Contactez nos astrologues experts</h5>
+                                <h1 class="as_orange">+ (91) 1800-124-105</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="as_footer_wrapper as_padderTop80">
+           <div class="container">
+                    <div class="as_newsletter_wrapper as_padderBottom60">
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
+                                <h1 class="as_heading">Notre Newsletter</h1>
+                                <p>Recevez votre horoscope quotidien, votre lovescope du jour et votre tirage de tarot<br>directement dans votre boîte mail.</p>
+                            </div>
+                            <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12">
+                                <div class="as_newsletter_box">
+                        <!-- La balise <form> doit contenir les champs et le bouton -->
+                        <form action="https://formspree.io/f/xrblqqno" method="POST" style="width: 100%; display: flex;">
+                            
+                            <!-- Champ pour l'e-mail -->
+                            <input type="email" name="email" class="form-control" placeholder="Entrez votre e-mail ici..." required>
+                            
+                            <!-- Bouton de soumission -->
+                            <button type="submit" class="as_btn">S’abonner maintenant</button>
+                            
+                        </form>
+                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="as_footer_inner as_padderTop50 as_padderBottom80">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="as_footer_widget">
+                                <div class="as_footer_logo">
+                                    <a href="index.html"><img src="assets/images/lelogo.png" alt=""></a>
+                                </div>
+                                <p>Plongez dans l'univers mystique des astres et découvrez les secrets de votre destinée.</p>
+
+                                <div class="as_share_box">
+                            <p>Suivez-nous</p>
+                            <ul>
+        <!-- Facebook -->
+        <li>
+            <a href="https://www.facebook.com/share/16zzMaJ52d/" target="_blank">
+                <img src="assets/images/svg/facebook.svg" alt="Facebook">
+            </a>
+        </li>
+
+        <!-- WhatsApp (remplace Twitter) -->
+        <li>
+            <a href="https://wa.me/22384876466" target="_blank">
+                <img src="assets/images/svg/whatsApp.svg" alt="WhatsApp">
+            </a>
+        </li>
+
+        <!-- TikTok (remplace Google+) -->
+        <li>
+            <a href="https://www.tiktok.com/@spiritualitelegale" target="_blank">
+                <img src="assets/images/svg/tiktok.svg" alt="TikTok">
+            </a>
+        </li>
+
+        <!-- Instagram (NOUVEAU) -->
+        <li>
+            <a href="https://www.instagram.com/spiritualiteprofonde" target="_blank">
+                <img src="assets/images/svg/instagram.svg" alt="Instagram">
+            </a>
+        </li>
+
+        <!-- YouTube -->
+        <li>
+            <a href="https://youtube.com/@spiritualitesante-officiel" target="_blank">
+                <img src="assets/images/svg/youtube.svg" alt="YouTube">
+            </a>
+        </li>
+    </ul>
+                        </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="as_footer_widget">
+                               <h3 class="as_footer_heading">Nos Services</h3>
+                               <ul>
+                                   <li><a href="service_detail.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Horoscopes</a></li>
+                                   <li><a href="service_detail.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Pierres précieuses</a></li>
+                                   <li><a href="service_detail.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Numérologie</a></li>
+                                   <li><a href="service_detail.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Cartes de tarot</a></li>
+                                   <li><a href="service_detail.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> journal de naissance</a></li>
+                               </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="as_footer_widget">
+                               <h3 class="as_footer_heading">Liens rapides</h3>
+                               <ul>
+                                   <li><a href="about.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> À propos</a></li>
+                                   <li><a href="blog.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Blog</a></li>
+                                   <li><a href="astrologer.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Astrologues</a></li>
+                                   <li><a href="appointment.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span>Prendre rendez-vous</a></li>
+                                   <li><a href="contact.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Contact Nous</a></li>
+                               </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="as_footer_widget">
+                               <h3 class="as_footer_heading"> Contactez-nous</h3>
+                               <ul class="as_contact_list">
+                                   <li><img src="assets/images/svg/map.svg" alt=""><p>1356 Broad Street, Lagos Island, Lagos, Nigeria</p></li>
+                                   <li><img src="assets/images/svg/address.svg" alt=""><p><a href="mailto:contact.spiritualiteprofonde@gmail.com">contact.spiritualiteprofonde@gmail.com</a></p></li> 
+                                   <li><img src="assets/images/svg/call.svg" alt=""><p><a href="tel:+22384876466">+22384876466</a><br><br></p></li>
+                               </ul>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+        </section>
+        <section class="as_copyright_wrapper text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p> Droit d’auteur ©  2022 Astrologie. Tous droits réservés. </p>
+                    </div>
+                </div>
+            </div>
+        </section> 
+    </div>
+    
+     <!-- Modal -->
+      <div id="as_login" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">×</button>
+                    <h4 class="modal-title">Connexion</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="as_login_box active">
+                        <form action="#">
+                            <div class="form-group"><input type="text" name="" placeholder="Enter email" class="form-control" id=""></div>
+                            <div class="form-group"><input type="text" name="" placeholder="Enter password here" class="form-control" id=""></div>
+                            <div class="form-group">
+                                <div class="as_login_data">
+                                    <label>Se souvenir de moi<input type="checkbox" name="as_remember_me" value=""><span class="checkmark"></span></label>
+                                    <a href="#">Mot de passe oublié ?</a>
+                                </div>
+                            </div>
+                            <div class="text-center"><a href="javascript:;" class="as_btn">Se connecter</a></div>
+                        </form>
+                        <p class="text-center as_margin0 as_padderTop20">Pas encore de compte ?<a href="javascript:;" class="as_orange as_signup">Créer un compte</a></p>
+                    </div>
+                    <div class="as_signup_box">
+                        <form action="#">
+                            <div class="form-group"><input type="text" name="" placeholder="Entrez votre nom" class="form-control" id=""></div>
+                            <div class="form-group"><input type="text" name="" placeholder="Entrez votre e-mail" class="form-control" id=""></div>
+                            <div class="form-group"><input type="text" name="" placeholder="Entrez votre mot de passe" class="form-control" id=""></div>
+                            <div class="form-group"><input type="text" name="" placeholder="Entrez votre numéro de téléphone" class="form-control" id=""></div>
+                            <div class="form-group">
+                                <select name="" class="form-control" id="">
+                                    <option value="homme">homme</option>
+                                    <option value="Femme">Femme</option>
+                                </select>
+                            </div>
+                            <div class="text-center"><a href="javascript:;" class="as_btn">S'inscrire</a></div>
+                        </form>
+                        <p class="text-center as_margin0 as_padderTop20">Vous avez déjà un compte ?  <a href="javascript:;" class="as_orange as_login">Connexion</a></p>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- javascript -->
+    <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugin/slick/slick.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugin/countto/jquery.countTo.js"></script>
+    <script type="text/javascript" src="assets/js/plugin/airdatepicker/datepicker.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugin/airdatepicker/i18n/datepicker.en.js"></script>
+    <script type="text/javascript" src="assets/js/plugin/select2/select2.min.js"></script>
+    <script src="assets/js/custom.js"></script>  
+    <script src="../../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="04ea1cd2a90ef7a9aedc3620-|49" defer></script>
+</body>
+</html>

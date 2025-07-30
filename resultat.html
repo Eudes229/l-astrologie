@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Votre Signe du Zodiaque - Résultat</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- On reprend les mêmes styles pour garder le design -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+    
+    <link rel="shortcut icon" href="assets/images/lelogo.png" type="image/x-icon">
+
+    <style>
+        /* Styles pour la carte de résultat */
+        .result-card {
+            background-color: #0f2d3e; /* Fond sombre de la section */
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 50px;
+            border: 2px solid #ff881a; /* Bordure orange */
+            color: white;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .result-card img {
+            max-width: 150px;
+            margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            padding: 15px;
+        }
+        .result-card h1 {
+            color: #ff881a; /* Titre en orange */
+            font-size: 3rem;
+            margin-bottom: 5px;
+        }
+        .result-card .dates {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+         .result-card .as_btn {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="as_main_wrapper">
+    <section class="as_padderTop80 as_padderBottom80">
+        <div class="container">
+
+            <!-- La carte qui contiendra le résultat -->
+            <div id="result-container" class="result-card">
+                <!-- Les informations seront insérées ici par JavaScript -->
+                <h1 id="nom-signe"></h1>
+                <p class="dates" id="dates-signe"></p>
+                <img id="image-signe" src="" alt="Symbole du signe">
+                <p id="description-signe" class="as_font14"></p>
+                
+                <a href="index.html" class="as_btn">Retourner</a>
+            </div>
+
+            <!-- Message d'erreur si la date est manquante -->
+             <div id="error-container" class="result-card" style="display: none;">
+                <h1>Erreur</h1>
+                <p>La date de naissance n'a pas été fournie.</p>
+                <a href="index.html" class="as_btn">Veuillez réessayer</a>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+<!-- Le script qui fait toute la magie sur CETTE page -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        const zodiacData = {
+            'Bélier': { dates: '21 mars – 19 avril', description: 'Énergique, audacieux et pionnier, le Bélier est un leader né qui n\'a pas peur de prendre des initiatives.', image: 'assets/images/svg/sign1.svg' },
+            'Taureau': { dates: '20 avril – 20 mai', description: 'Fiable, patient et pratique, le Taureau apprécie la stabilité et les plaisirs simples de la vie. Il est loyal et déterminé.', image: 'assets/images/svg/sign2.svg' },
+            'Gémeaux': { dates: '21 mai – 20 juin', description: 'Curieux, adaptable et expressif, le Gémeaux est un communicant talentueux, toujours en quête de nouvelles expériences.', image: 'assets/images/svg/sign3.svg' },
+            'Cancer': { dates: '21 juin – 22 juillet', description: 'Intuitif, protecteur et sensible, le Cancer est profondément attaché à sa famille et à son foyer. Il est loyal et empathique.', image: 'assets/images/svg/sign4.svg' },
+            'Lion': { dates: '23 juillet – 22 août', description: 'Charismatique, créatif et généreux, le Lion aime être au centre de l\'attention. Il est confiant et passionné.', image: 'assets/images/svg/sign5.svg' },
+            'Vierge': { dates: '23 août – 22 septembre', description: 'Pragmatique, méticuleuse et analytique, la Vierge a le souci du détail. Elle est travailleuse et cherche toujours à aider.', image: 'assets/images/svg/sign6.svg' },
+            'Balance': { dates: '23 septembre – 22 octobre', description: 'Diplomate, sociable et éprise de justice, la Balance recherche l\'harmonie et l\'équilibre dans toutes ses relations.', image: 'assets/images/svg/sign7.svg' },
+            'Scorpion': { dates: '23 octobre – 21 novembre', description: 'Passionné, déterminé et mystérieux, le Scorpion est un être intense qui vit ses émotions pleinement.', image: 'assets/images/svg/sign8.svg' },
+            'Sagittaire': { dates: '22 novembre – 21 décembre', description: 'Optimiste, aventurier et philosophe, le Sagittaire a une soif insatiable de connaissance et de voyage.', image: 'assets/images/svg/sign9.svg' },
+            'Capricorne': { dates: '22 décembre – 19 janvier', description: 'Ambitieux, discipliné et responsable, le Capricorne est un travailleur acharné qui atteint ses objectifs avec patience.', image: 'assets/images/svg/sign10.svg' },
+            'Verseau': { dates: '20 janvier – 18 février', description: 'Original, indépendant et humaniste, le Verseau est un visionnaire qui souhaite améliorer le monde.', image: 'assets/images/svg/sign11.svg' },
+            'Poissons': { dates: '19 février – 20 mars', description: 'Intuitif, compatissant et artistique, le Poisson est un rêveur sensible connecté au monde des émotions et de l\'imagination.', image: 'assets/images/svg/sign12.svg' }
+        };
+
+        // 1. Récupérer les données de l'URL
+        const params = new URLSearchParams(window.location.search);
+        const dateInput = params.get('date_naissance');
+
+        if (!dateInput) {
+            // Affiche l'erreur si aucune date n'est trouvée
+            document.getElementById('result-container').style.display = 'none';
+            document.getElementById('error-container').style.display = 'block';
+            return;
+        }
+
+        // 2. Calculer le signe
+        const parts = dateInput.split('/');
+        const day = parseInt(parts[0], 10);
+        const month = parseInt(parts[1], 10);
+        let sign = '';
+
+        if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) { sign = 'Verseau'; }
+        else if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) { sign = 'Poissons'; }
+        else if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) { sign = 'Bélier'; }
+        else if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) { sign = 'Taureau'; }
+        else if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) { sign = 'Gémeaux'; }
+        else if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) { sign = 'Cancer'; }
+        else if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) { sign = 'Lion'; }
+        else if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) { sign = 'Vierge'; }
+        else if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) { sign = 'Balance'; }
+        else if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) { sign = 'Scorpion'; }
+        else if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) { sign = 'Sagittaire'; }
+        else if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) { sign = 'Capricorne'; }
+
+        // 3. Afficher les résultats dans la page
+        if (sign && zodiacData[sign]) {
+            const data = zodiacData[sign];
+            document.getElementById('nom-signe').textContent = sign;
+            document.getElementById('dates-signe').textContent = data.dates;
+            document.getElementById('image-signe').src = data.image;
+            document.getElementById('image-signe').alt = `Symbole ${sign}`;
+            document.getElementById('description-signe').textContent = data.description;
+        } else {
+             // Affiche l'erreur si le signe n'est pas trouvé
+            document.getElementById('result-container').style.display = 'none';
+            document.getElementById('error-container').style.display = 'block';
+        }
+    });
+</script>
+
+</body>
+</html>

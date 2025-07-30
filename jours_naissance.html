@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Signification des Jours de Naissance - Astrologie</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/plugin/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/js/plugin/airdatepicker/datepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="assets/images/lelogo.png" type="image/x-icon">
+    
+    <!-- Style personnalisé pour cette page -->
+    <style>
+        .day-section {
+            background-color: #0f1024;
+            border: 1px solid #333;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .day-section h2 {
+            color: #ff9800; /* Couleur orange du thème */
+            margin-bottom: 20px;
+        }
+        .day-section h4 {
+             margin-top: 25px;
+             margin-bottom: 15px;
+        }
+        .day-section p {
+            line-height: 1.8;
+        }
+        .disclaimer {
+            font-style: italic;
+            background-color: #1a1b2e;
+            padding: 15px;
+            border-left: 4px solid #ff9800;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="as_loader">
+        <img src="assets/images/lelogo.png" alt="" class="img-responsive">
+    </div> 
+    <div class="as_main_wrapper">
+        <section class="as_header_wrapper">
+            <div class="as_logo">
+                <a href="javascript:;"><img src="assets/images/lelogo.png" alt=""></a>
+            </div>
+            <div class="as_header_detail">
+                <div class="as_info_detail">
+                    <ul>
+                        <li>
+                            <a href="javascript:;">
+                                <div class="as_infobox">
+                                    <span class="as_infoicon">
+                                        <img src="assets/images/svg/headphone.svg" alt="">
+                                    </span>
+                                <span class="as_orange">Discutez avec nos astrologues -</span>+22384876466
+                                </div>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="javascript:;">
+                                <div class="as_infobox">
+                                    <span class="as_infoicon">
+                                        <img src="assets/images/svg/mail1.svg" alt="">
+                                    </span>
+                                <span class="as_orange">Discutez avec nos astrologues -</span><span class="__cf_email__" data-cfemail="4a393f3a3a25383e0a3d2f2839233e2f64292527">[adresse email&#160;protégée]</span>
+                                </div>
+                            </a>
+                        </li> -->
+                    </ul>
+                    <div class="as_right_info">
+                        <a href="javascript:;">
+                            <div class="as_infobox" data-bs-toggle="modal" data-bs-target="#as_login">
+                                <span class="as_infoicon">
+                                    <img src="assets/images/svg/login.svg" alt="">
+                                </span>
+                                <span class="as_logintext">Se connecter / S’inscrire</span>
+                            </div>
+                        </a>
+                        <!-- <div class="as_cart">
+                            <div class="as_cart_wrapper">
+                                <span><img src="assets/images/svg/cart.svg" alt=""><span class="as_cartnumber">02</span></span>
+                                $512
+                            </div>
+
+                            <div class="as_cart_box">
+								<div class="as_cart_list">
+									<ul>
+										<li>
+											<div class="as_cart_img">
+												<img src="assets/images/prod1_d.jpg" class="img-responsive">
+											</div>
+											<div class="as_cart_info">
+												<a href="#">Yellow Sapphire</a>
+												<p>1 X $20.00</p>
+												<a href="javascript:;" class="as_cart_remove"><i class="fa fa-trash"></i></a>
+											</div>
+										</li>
+										<li>
+											<div class="as_cart_img">
+												<img src="assets/images/prod2_D.html" class="img-responsive">
+											</div>
+											<div class="as_cart_info">
+												<a href="#">yantra</a>
+												<p>1 X $10.00</p>
+												<a href="javascript:;" class="as_cart_remove"><i class="fa fa-trash"></i></a>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="as_cart_total">
+									<p>total<span>$30.00</span></p>
+								</div>
+								<div class="as_cart_btn">
+									<button type="button" class="as_btn">panier</button>
+									<button type="button" class="as_btn">valider la commande</button>
+								</div>
+							</div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="as_menu_wrapper">
+                    <span class="as_toggle bg_overlay">
+                        <img src="assets/images/svg/menu.svg" alt="">
+                    </span>
+                    <div class="as_menu">
+                        <ul>
+                            <li><a href="index.html" class="active">Acceuil</a></li>
+                            <li><a href="about.html">À propos</a></li>
+                            <li><a href="service.html">services</a></li>
+                            <li><a href="javascript:;">blog</a>
+                                <ul class="as_submenu">
+                                    <li><a href="blog.html">blog</a></li>
+                                    <li><a href="javascript:;">Article de blog</a>
+                                        <ul class="as_submenu">
+                                            <!-- <li><a href="blog_left_detail.html">Barre latérale gauche</a></li> -->
+                                            <li><a href="blog_detail.html">Barre latérale droite</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="appointment.html">Rendez-vous</a></li>
+                            <li><a href="javascript:;">Boutique</a>
+                                <ul class="as_submenu">
+                                    <li><a href="shop.html">Boutique</a></li>
+                                    <!-- <li><a href="shop_single.html">Fiche produit</a></li>
+                                    <li><a href="cart.html">Panier</a></li>
+                                    <li><a href="checkout.html">Paiement</a></li> -->
+                                </ul>
+                            </li>
+                            <li><a href="javascript:;">pages</a>
+                                <ul class="as_submenu">
+                                    <!-- <li><a href="astrologer.html">Astrologie</a></li> -->
+                                    <li><a href="privacy_policy.html">Politique de confidentialité</a></li>
+                                    <li><a href="error.html">404</a></li>
+                                    <li><a href="faq.html">faq</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contact.html">contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="as_search_wrapper">
+                        <img src="assets/images/search.png" alt="" class="as_search">
+
+                        <div class="as_search_boxpopup">
+    <a href="javascript:;" class="as_cancel">...</a> <!-- Gardez le SVG du bouton fermer -->
+    <div class="as_search_inner">
+        <!-- TRANSFORMATION EN FORMULAIRE DE RECHERCHE -->
+        <form action="search-results.html" method="GET">
+            <div class="as_search_widget">
+                <input type="text" name="q" class="form-control" placeholder="Rechercher sur le site..." required>
+                <button type="submit" style="background: none; border: none; padding: 0;">
+                    <img src="assets/images/svg/search.svg" alt="Rechercher">
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+                    </div>
+                </div>
+                <span class="as_body_overlay"></span>
+            </div>  
+        </section>
+
+        <!-- Titre de la page -->
+        <section class="as_breadcrum_wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h1>Signification Spirituelle des Jours de Naissance</h1>
+                        <ul class="as_breadcrum_user">
+                            <li><a href="index.html">Accueil</a></li>
+                            <li><a href="javascript:;">Signification des jours de naissance</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contenu principal -->
+        <section class="as_padderTop80 as_padderBottom80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <!-- LUNDI -->
+                        <div class="day-section" id="lundi">
+                            <h2 class="as_heading">NATIF DE LUNDI </h2>
+                            <p>C’est la lune qui exerce son influence sur ce jour. Les personnes nées un lundi sont très fidèles en amour et particulièrement douées pour voir ce qui se cache derrière les apparences. Si elles t’aiment, c’est qu’elles donneront tout pour être uniquement à toi mais le jour où tu vas les décevoir et elles décideront de partir, plus rien ne les fera revenir. Quand elles font très souvent des rêves prémonitoires (DRÔR ADI en langue fon), des rêves qui se réalisent. Si vous êtes nées un lundi, ne négligez jamais les rêves que vous faites car ça peut prévenir des dangers et sauver des vies. Les personnes nées un lundi ne doivent pas se plaindre quand ils traversent une période difficile sinon ils vont encore compliquer leur situation. Dites toujours des paroles positives car votre langue est très tranchante.</p>
+                            
+                            <h4 class="as_subheading">Plante Spirituelle et Rituels</h4>
+                            <p>Votre plante spirituelle, c’est le <strong>Baobab</strong>, communément appelé <strong>KPASSATIN</strong> en langue fon. Si vous avez un problème qui vous tient à cœur, si un souci vous tracasse, allez devant l’arbre Baobab (KPASSATIN), mettez-vous pieds nus, mettez vos deux mains sur le tronc de l’arbre et faites vos vœux. Prononcez vos paroles, si c’est quelqu’un qui vous a fait du mal, si c’est quelque chose que vous voulez, dites ça à cet arbre et tout va se réaliser. Ça n’a peut-être l’air de rien à vos yeux mais c’est du réel et la nature répond toujours. Quand vous allez finir de prononcer vos paroles, ramassez quelques feuilles tombées au pied de cet arbre, allez triturer ça à la maison dans un seau d’eau, y ajoutez un parfum SAINT MICHEL, lavez vous avec et ça va vous ouvrir des portes spirituelles aussi.</p>
+                            
+                            <h4 class="as_subheading">Protections et Interdictions</h4>
+                            <p>Les personnes nées un lundi ne doivent pas mal parler de la lune. Quand la première lune sort, déchaussez vous et faites des vœux. Si vous voulez faire des cadeaux à votre mère, ajoutez toujours une poule pondeuse noire (Koklo Assinon Wiwi), une poule noire qui a déjà eu des poussins une fois. Pourquoi cela ? Éh bien, les personnes nées un lundi sont très convoitées par les forces maléfiques de la sorcellerie et le simple fait d’offrir une poule pondeuse noire à leur mère est une grande protection spirituelle. Quand tu as des problèmes personnels qui te dépassent, achète une poule pondeuse noire, raconte sur elle tout ce que tu traverses comme situation puis vas l’offrir à ta mère. Elle peut en faire ce qu’elle veut, l’élever ou en faire la cuisson. L’essentiel est qu’elle l’accepte. Ça va t’ouvrir des portes spirituelles.</p>
+                            <p><strong>Interdit alimentaire :</strong> Ne pas spécialement manger l’oiseau qu’on appelle en fon <strong>AHOUAN-NIN (Pigeon)</strong>.</p>
+                            
+                            <div class="disclaimer">
+                                <p><strong>Note importante :</strong> Ce développement est général. Chacun est appelé à consulter le Fâ sur sa vie pour savoir comment se tenir pour réussir. Nous pouvons naître le même jour, mais avoir différentes destinées et différents blocages (sorcellerie, avortement, divinités...). Consultez le Fâ pour avoir des précisions sur votre situation personnelle.</p>
+                            </div>
+                        </div>
+
+                        <!-- MARDI -->
+                        <div class="day-section" id="mardi">
+                            <h2 class="as_heading">NATIF DE MARDI</h2>
+                            <p>Les personnes nées un mardi sont souvent sur les nerfs sans raison (Yé Non Mon Akpôr Tawoun). Vous devez apprendre à maîtriser votre colère et ne pas trop crier car cela déclenche souvent des AVC à un certain âge. Elles sont tout le temps combattues même quand elles ne font rien à personne. Beaucoup de personnes les jalousent car on voit en eux la rage de réussir. Leur devise, c’est : Œil pour œil, dent pour dent. Si tu leur fais du mal, ils vont forcément te rendre le coup.</p>
+                            
+                            <h4 class="as_subheading">Interdictions et Recommandations</h4>
+                            <p>Vous ne devez pas avoir vos mains dans du <strong>sang</strong>. Par exemple, ne pas égorger un animal et verser son sang par terre, ni tuer vous-même un animal sur un fétiche. Vous pouvez le remettre à un Bokônon pour qu'il le fasse à votre place. Évitez les habits de couleur <strong>rouge</strong> car ça attire les catastrophes et les énergies négatives. Pour aller à de grands rassemblements, portez souvent des habits <strong>blancs</strong> pour apaiser votre tempérament.</p>
+                            
+                            <h4 class="as_subheading">Carrière et Spiritualité</h4>
+                            <p><strong>Métiers favorables :</strong> Armée, athlétisme (footballeur, boxeur, lutte), danseur, fonctions d’autorité. Ils aiment être leur propre boss et excellent en entrepreneuriat.
+                            <br><strong>Divinité :</strong> Le <strong>GOU</strong> (Dieu du fer) gouverne le mardi.
+                            <br><strong>Couleurs positives :</strong> Le <strong>Jaune</strong> et le <strong>Blanc</strong>.
+                            <br><strong>Jour propice :</strong> Faites vos travaux de désenvoûtement ou prières de combat les mardis.
+                            <br><strong>Avertissement :</strong> Ne faites jamais d'avortements, car les natifs de mardi subissent plus la colère de ce phénomène.</p>
+
+                            <div class="disclaimer">
+                                <p><strong>Note importante :</strong> Ces informations sont générales. Pour une analyse approfondie de votre vie, de vos problèmes et des solutions adéquates (sorcellerie, offrandes, etc.), il est conseillé de consulter le Fâ.</p>
+                            </div>
+                        </div>
+
+                        <!-- MERCREDI -->
+                        <div class="day-section" id="mercredi">
+                            <h2 class="as_heading">NATIF DE MERCREDI </h2>
+                            <p>Les personnes nées un mercredi sont pour la plupart des gens de bons cœurs, aimant la paix et la tranquillité. Ils jouent souvent les médiateurs, mais cela se retourne contre eux. Prêts à tout donner pour les autres, ils sont souvent déçus en retour. Ils apprennent très vite et maîtrisent rapidement de nouvelles compétences.</p>
+                             
+                            <h4 class="as_subheading">Points de Vigilance</h4>
+                            <p><strong>Discrétion :</strong> Ne parlez pas de vos projets, car l'entourage peut vous nuire.
+                            <br><strong>Justice :</strong> Faites attention, car la prison rôde beaucoup autour de vous, même pour des actes non commis.
+                            <br><strong>Travail :</strong> Vous pouvez rencontrer des difficultés en travaillant pour quelqu'un (perte d'emploi, problèmes relationnels).
+                            <br><strong>Amour :</strong> Vous êtes très affectés par les déceptions amoureuses, car vous mettez tout votre cœur dans une relation, au point de vous déconcentrer de vos objectifs. Vous êtes aussi extrêmement <strong>jaloux</strong> et possessifs.</p>
+
+                            <h4 class="as_subheading">Santé, Spiritualité et Carrière</h4>
+                            <p><strong>Santé :</strong> Problèmes possibles : éjaculation précoce ou perte de virilité pour les hommes ; fibromes, kystes, infertilité pour les femmes. Ce sont souvent des problèmes de type <strong>SÈMIN-ZON</strong>.
+                            <br><strong>Plante :</strong> Votre plante idéale est le <strong>SAKPATAMAN</strong>.
+                            <br><strong>Interdits alimentaires :</strong> Viande de pintade, maïs grillé.
+                            <br><strong>Couleur porte-bonheur :</strong> Le <strong>Gris</strong>.
+                            <br><strong>Divinité :</strong> <strong>Sakpata</strong> gouverne ce jour. Toute offrande doit l'invoquer.
+                            <br><strong>Métiers favorables :</strong> Journalisme, informatique, électricien, marketing, métiers de la communication (art oratoire).</p>
+
+                            <div class="disclaimer">
+                                <p><strong>Note importante :</strong> Encore une fois, ces informations sont générales. Une consultation du Fâ est recommandée pour des problèmes spécifiques financiers, professionnels ou sentimentaux.</p>
+                            </div>
+                        </div>
+
+                        <!-- JEUDI -->
+                        <div class="day-section" id="jeudi">
+                            <h2 class="as_heading">NATIF DE JEUDI </h2>
+                            <p>Ceux qui sont nés un Jeudi sont "TROP BONS TROP MÉCHANTS". Gentils, honnêtes et souriants, leur colère est rare mais dévastatrice. Ils encaissent beaucoup avant de réagir. Ils détestent qu'on les sous-estime et imposent le respect. Ils sont très, très propres ; la propreté est une condition à leur réussite. Ils sont directs, détestent l'hypocrisie et l'injustice.</p>
+                            
+                            <h4 class="as_subheading">Vie Personnelle et Défis</h4>
+                            <p><strong>Couple :</strong> Ils ont souvent des difficultés à maintenir une vie de couple stable, divorçant rapidement si leur égo est menacé. Ils n'aiment pas être dirigés. Ils écoutent les conseils mais finissent par faire ce qu'ils ont en tête.
+                            <br><strong>Spiritualité :</strong> Ils sont souvent confrontés à des problèmes de maris ou femmes de nuit. Les entités de ce jour sont liées à l'eau (divinité <strong>Dan</strong>). Ce point doit être réglé spirituellement pour une vie épanouie.</p>
+                            
+                            <h4 class="as_subheading">Recommandations et Atouts</h4>
+                            <p><strong>Couleur porte-bonheur :</strong> Le <strong>BLEU</strong>.
+                            <br><strong>Interdictions :</strong> Éviter de nager dans la mer, de porter des habits tout rouge ou tout noir, et de verser du sang d'animaux sur des fétiches soi-même.
+                            <br><strong>Source de bénédiction :</strong> Prendre soin de son père (même décédé, par des aumônes) apporte beaucoup d'ouvertures.
+                            <br><strong>Plante :</strong> La feuille de <strong>Laurier</strong>. Gardez-en quelques feuilles sur vous (porte-monnaie, poche, bureau) pour attirer les ondes positives.
+                            <br><strong>Commerce :</strong> Quel que soit leur métier principal, ils doivent avoir le commerce comme activité secondaire, car ils y excellent.</p>
+                            
+                             <div class="disclaimer">
+                                <p><strong>Note importante :</strong> Un natif du jeudi est appelé à diriger. Les forces maléfiques chercheront à le bloquer. Il est crucial de faire face à ces blocages (sorcellerie, liens familiaux, avortement...). Une consultation du Fâ est suggérée pour identifier et résoudre ces problèmes.</p>
+                            </div>
+                        </div>
+
+                        <!-- VENDREDI -->
+                        <div class="day-section" id="vendredi">
+                            <h2 class="as_heading">NATIF DE VENDREDI</h2>
+                            <p>Reconnus pour leur courage, les natifs du vendredi n'ont peur de rien et aiment défier les interdits. Ce jour symbolise la beauté, l'amour et l'harmonie. Ils sont naturellement très beaux et attirants.</p>
+
+                            <h4 class="as_subheading">Défis et Dynamiques de Vie</h4>
+                            <p><strong>Femmes :</strong> Elles ont souvent des problèmes de foyer et une instabilité amoureuse, mais elles réussissent leur vie en triomphant de ces difficultés. Elles deviennent souvent riches après que leurs enfants aient grandi. N'avortez pas, car un enfant peut être la clé de votre réussite.
+                            <br><strong>Hommes :</strong> Très convoités, ils doivent faire attention à ne pas se perdre dans de multiples relations amoureuses, ce qui pourrait tout faire écrouler. Certains comptent sur leur beauté pour trouver une partenaire aisée. Ils aiment la propreté et l'ordre.</p>
+                            
+                            <h4 class="as_subheading">Interdictions, Atouts et Carrière</h4>
+                            <p><strong>Interdits alimentaires :</strong> Gombo, papaye, viande de porc, huile rouge. Ces aliments affaiblissent leur niveau spirituel.
+                            <br><strong>Couleurs porte-bonheur :</strong> Le <strong>Vert</strong> ou le <strong>Rose</strong>.
+                            <br><strong>Plante spirituelle :</strong> La <strong>VERVEINE</strong>.
+                            <br><strong>Métiers favorables :</strong> Tous les métiers liés à la beauté et au luxe : mode, stylisme, couture, coiffure, métiers d'art, décoration, cosmétiques, esthétique, architecture, etc.</p>
+
+                            <div class="disclaimer">
+                                <p><strong>Note importante :</strong> Si vous rencontrez des blocages (sorcellerie, échec, envoûtement, instabilité), la consultation du Fâ peut vous orienter vers les solutions adaptées (déblocage, offrandes, etc.).</p>
+                            </div>
+                        </div>
+
+                        <!-- SAMEDI -->
+                        <div class="day-section" id="samedi">
+                            <h2 class="as_heading">NATIF DE SAMEDI </h2>
+                            <p>Les natifs du samedi sont les plus têtus. Turbulents enfants, ils deviennent calmes et sages en grandissant. Curieux, créatifs, ils aiment découvrir les mystères. Ils sont responsables, discrets et apprennent vite. Ils n'abandonnent pas facilement et sont des rancuniers à vie, même s'ils pardonnent, ils n'oublient pas et restent méfiants. Leur instinct pour détecter les mauvaises personnes est très fiable.</p>
+                            
+                            <h4 class="as_subheading">Caractère et Relations</h4>
+                            <p>Certains peuvent être hypocrites pour éviter les problèmes. Ils ne réagissent pas sur le coup mais rendent presque toujours le mal pour le mal. Ils tiennent leurs promesses mais détestent qu'on leur mette la pression. Fidèles en amitié et en affaires, ils aident les autres jusqu'à s'oublier eux-mêmes. Apprenez à dire NON parfois.</p>
+                            
+                            <h4 class="as_subheading">Métiers, Interdictions et Recommandations</h4>
+                            <p><strong>Métiers favorables :</strong> Enseignement, exploration, guide touristique, médecine, pharmacie, tradi-praticien, jardinier, métiers de la spiritualité (pasteur, prêtre, Bokônon).
+                            <br><strong>Animal de référence :</strong> Le chien.
+                            <br><strong>Interdictions Spirituelles :</strong>
+                            <ul>
+                                <li>Ne jamais faire de travaux spirituels où l'on enterre des choses ou l'on plante des piquets (ça se retournera contre vous).</li>
+                                <li>Éviter de regarder le visage d'un corps inanimé lors d'un enterrement. Si c'est inévitable, faites une purification.</li>
+                            </ul>
+                             <br><strong>Interdit alimentaire :</strong> Éviter la moutarde traditionnelle.
+                             <br><strong>Couleurs :</strong> Éviter les habits tout noirs. Votre couleur porte-bonheur est le <strong>Berge</strong> (beige). Le <strong>blanc</strong> vous convient aussi.</p>
+                             
+                             <div class="disclaimer">
+                                <p><strong>Note importante :</strong> Chaque personne est unique. Pour des problèmes de blocage, exigez toujours un déblocage général sur votre vie avant toute autre offrande ou travail spirituel lors d'une consultation.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- DIMANCHE -->
+                        <div class="day-section" id="dimanche">
+                            <h2 class="as_heading">LES NATIFS DU DIMANCHE</h2>
+                            <p>Jour aîné gouverné par le soleil et l'Archange Raphaël, le natif du dimanche aime la gloire et peut être égoïste. Très généreux, surtout quand on le valorise en public. Ce sont des chefs nés, des rois par nature, qui aiment diriger. Ils traversent beaucoup de souffrances et sont peu aidés par leur entourage. Meneurs oubliés, ils doivent faire attention aux affaires de justice.</p>
+
+                            <h4 class="as_subheading">Défis et Santé</h4>
+                            <p><strong>Santé :</strong> Attention aux maladies cardio-vasculaires et à la colonne vertébrale. Attention aussi à l'hémorroïde et aux maux d'yeux.
+                            <br><strong>Relations :</strong> Ils donnent beaucoup d'amour mais ne sont pas aimés en retour à leur juste valeur. On leur prête de mauvaises intentions et ils sont souvent enviés, ce qui attire le mauvais œil.
+                            <br><strong>Apparence :</strong> Votre oracle dit : "l'habit ne fait pas le moine". On vous croit riche, mais la réalité est autre. Cherchez un mentor pour vous guider.</p>
+                            
+                             <h4 class="as_subheading">Recommandations et Carrière</h4>
+                            <p><strong>Plante de chance :</strong> L'<strong>Oranger</strong>.
+                            <br><strong>Couleur porte-bonheur :</strong> Le <strong>Jaune</strong> ou l'<strong>Orange</strong>.
+                            <br><strong>Recommandations :</strong> Soyez reconnaissant. Évitez les relations amoureuses avec des personnes beaucoup plus jeunes.
+                            <br><strong>Métiers favorables :</strong> Tous les métiers sociaux en contact avec la foule (politique, enseignement). Vous n'êtes pas fait pour être subalterne, vous devriez avoir votre propre activité.
+                            <br><strong>Interdits alimentaires :</strong> Viande de porc, huile rouge, saumon, viande rouge.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="as_footer_wrapper as_padderTop80">
+           <div class="container">
+                    <div class="as_newsletter_wrapper as_padderBottom60">
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
+                                <h1 class="as_heading">Notre Newsletter</h1>
+                                <p>Recevez votre horoscope quotidien, votre lovescope du jour et votre tirage de tarot<br>directement dans votre boîte mail.</p>
+                            </div>
+                            <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12">
+                                <div class="as_newsletter_box">
+                        <!-- La balise <form> doit contenir les champs et le bouton -->
+                        <form action="https://formspree.io/f/xrblqqno" method="POST" style="width: 100%; display: flex;">
+                            
+                            <!-- Champ pour l'e-mail -->
+                            <input type="email" name="email" class="form-control" placeholder="Entrez votre e-mail ici..." required>
+                            
+                            <!-- Bouton de soumission -->
+                            <button type="submit" class="as_btn">S’abonner maintenant</button>
+                            
+                        </form>
+                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="as_footer_inner as_padderTop50 as_padderBottom80">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="as_footer_widget">
+                                <div class="as_footer_logo">
+                                    <a href="index.html"><img src="assets/images/lelogo.png" alt=""></a>
+                                </div>
+                                <p>Plongez dans l'univers mystique des astres et découvrez les secrets de votre destinée.</p>
+
+                                <div class="as_share_box">
+                            <p>Suivez-nous</p>
+                            <ul>
+        <!-- Facebook -->
+        <li>
+            <a href="https://www.facebook.com/share/16zzMaJ52d/" target="_blank">
+                <img src="assets/images/svg/facebook.svg" alt="Facebook">
+            </a>
+        </li>
+
+        <!-- WhatsApp (remplace Twitter) -->
+        <li>
+            <a href="https://wa.me/22384876466" target="_blank">
+                <img src="assets/images/svg/whatsApp.svg" alt="WhatsApp">
+            </a>
+        </li>
+
+        <!-- TikTok (remplace Google+) -->
+        <li>
+            <a href="https://www.tiktok.com/@spiritualitelegale" target="_blank">
+                <img src="assets/images/svg/tiktok.svg" alt="TikTok">
+            </a>
+        </li>
+
+        <!-- Instagram (NOUVEAU) -->
+        <li>
+            <a href="https://www.instagram.com/spiritualiteprofonde" target="_blank">
+                <img src="assets/images/svg/instagram.svg" alt="Instagram">
+            </a>
+        </li>
+
+        <!-- YouTube -->
+        <li>
+            <a href="https://youtube.com/@spiritualitesante-officiel" target="_blank">
+                <img src="assets/images/svg/youtube.svg" alt="YouTube">
+            </a>
+        </li>
+    </ul>
+                        </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="as_footer_widget">
+                               <h3 class="as_footer_heading">Nos Services</h3>
+
+                               <ul>
+                                   <li><a href="service_detail.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Horoscopes</a></li>
+                                   <li><a href="service_detail.html">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Pierres précieuses</a></li>
+                                   <li><a href="service_detail.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Numérologie</a></li>
+                                   <li><a href="service_detail.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Cartes de tarot</a></li>
+                                   <li><a href="service_detail.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> journal de naissance</a></li>
+                               </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="as_footer_widget">
+                               <h3 class="as_footer_heading">Liens rapides</h3>
+
+                               <ul>
+                                   <li><a href="about.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> À propos</a></li>
+                                   <li><a href="blog.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Blog</a></li>
+                                   <li><a href="astrologer.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Astrologues</a></li>
+                                   <li><a href="appointment.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span>Prendre rendez-vous</a></li>
+                                   <li><a href="contact.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Contact Nous</a></li>
+                               </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="as_footer_widget">
+                               <h3 class="as_footer_heading"> Contactez-nous</h3>
+
+                               <ul class="as_contact_list">
+                                   <li>
+                                       <img src="assets/images/svg/map.svg" alt="">
+                                        <p>1356 Broad Street, Lagos Island, Lagos, Nigeria</p>
+                                    </li>
+                                   <li>
+                                       <img src="assets/images/svg/address.svg" alt="">
+                                        <p>
+                                            <a href="mailto:contact.spiritualiteprofonde@gmail.com">contact.spiritualiteprofonde@gmail.com</a>
+                                            <!-- <a href="javascript:;"><span class="__cf_email__" data-cfemail="b1d0c2c5c3def1d4c9d0dcc1ddd49fd2dedc">[adresse email&#160;protégée]</span></a> -->
+                                        </p> 
+                                    </li> 
+                                   <li>
+                                       <img src="assets/images/svg/call.svg" alt="">
+                                        <p>
+                                            <a href="tel:+22384876466">+22384876466</a><br>
+                                            <!-- <a href="javascript:;">+ (91) 1800-326-324</a> -->
+                                        </p>
+                                    </li>
+                               </ul>
+                            </div>
+                        </div>
+                        </div>
+                        
+                    </div>
+            </div>
+        </section>
+        <section class="as_copyright_wrapper text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p> Droit d’auteur &copy;  2022 Astrologie. Tous droits réservés. </p>
+                    </div>
+                </div>
+            </div>
+        </section> 
+    </div>
+    
+
+     <!-- Modal -->
+      <div id="as_login" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                    <h4 class="modal-title">Connexion</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="as_login_box active">
+                        <form action="#">
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Enter email" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Enter password here" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <div class="as_login_data">
+                                    <label>Se souvenir de moi
+                                         <input type="checkbox" name="as_remember_me" value="">
+                                         <span class="checkmark"></span>
+                                    </label>
+                                    <a href="#">Mot de passe oublié ?</a>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <a href="javascript:;" class="as_btn">Se connecter</a>
+                            </div>
+                        </form>
+                        <p class="text-center as_margin0 as_padderTop20">Pas encore de compte ?<a href="javascript:;" class="as_orange as_signup">Créer un compte</a></p>
+                    </div>
+                    <div class="as_signup_box">
+                        <form action="#">
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Entrez votre nom" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Entrez votre e-mail" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Entrez votre mot de passe" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Entrez votre numéro de téléphone" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <select name="" class="form-control" id="">
+                                    <option value="homme">homme</option>
+                                    <option value="Femme">Femme</option>
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <a href="javascript:;" class="as_btn">S'inscrire</a>
+                            </div>
+                        </form>
+                        <p class="text-center as_margin0 as_padderTop20">Vous avez déjà un compte ?  <a href="javascript:;" class="as_orange as_login">Connexion</a></p>
+                    </div> 
+                </div>
+            </div>
+    
+        </div>
+    </div>
+
+    <!-- javascript -->
+    <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery.min.js" type="04ea1cd2a90ef7a9aedc3620-text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="04ea1cd2a90ef7a9aedc3620-text/javascript"></script>
+    <script type="04ea1cd2a90ef7a9aedc3620-text/javascript" src="assets/js/plugin/slick/slick.min.js"></script>
+    <script type="04ea1cd2a90ef7a9aedc3620-text/javascript" src="assets/js/plugin/countto/jquery.countTo.js"></script>
+    <script type="04ea1cd2a90ef7a9aedc3620-text/javascript" src="assets/js/plugin/airdatepicker/datepicker.min.js"></script>
+    <script type="04ea1cd2a90ef7a9aedc3620-text/javascript" src="assets/js/plugin/airdatepicker/i18n/datepicker.en.js"></script>
+    <script type="04ea1cd2a90ef7a9aedc3620-text/javascript" src="assets/js/plugin/select2/select2.min.js"></script>
+    <script src="assets/js/custom.js" type="04ea1cd2a90ef7a9aedc3620-text/javascript"></script>  
+<script src="../../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="04ea1cd2a90ef7a9aedc3620-|49" defer></script></body>
+</html>

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Horoscope du Jour - Astrologie</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/plugin/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/js/plugin/airdatepicker/datepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/lelogo.png" type="image/x-icon">
+
+    <!-- Style personnalisé pour les cartes d'horoscope -->
+    <style>
+        .horoscope-card {
+            background-color: #0f1024;
+            border: 1px solid rgba(255, 152, 0, 0.2);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .horoscope-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: #ff9800;
+        }
+        .horoscope-card .sign-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px auto;
+        }
+        .horoscope-card h3 {
+            color: #ff9800; /* Couleur orange du thème */
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .horoscope-card .date-range {
+            color: #a9a9b8;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .horoscope-card p {
+            text-align: left;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="as_loader">
+        <img src="assets/images/lelogo.png" alt="" class="img-responsive">
+    </div> 
+    <div class="as_main_wrapper">
+        <section class="as_header_wrapper">
+            <div class="as_logo">
+                <a href="javascript:;"><img src="assets/images/lelogo.png" alt=""></a>
+            </div>
+            <div class="as_header_detail">
+                <div class="as_info_detail">
+                    <ul>
+                        <li>
+                            <a href="javascript:;">
+                                <div class="as_infobox">
+                                    <span class="as_infoicon">
+                                        <img src="assets/images/svg/headphone.svg" alt="">
+                                    </span>
+                                <span class="as_orange">Discutez avec nos astrologues -</span>+22384876466
+                                </div>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="javascript:;">
+                                <div class="as_infobox">
+                                    <span class="as_infoicon">
+                                        <img src="assets/images/svg/mail1.svg" alt="">
+                                    </span>
+                                <span class="as_orange">Discutez avec nos astrologues -</span><span class="__cf_email__" data-cfemail="4a393f3a3a25383e0a3d2f2839233e2f64292527">[adresse email&#160;protégée]</span>
+                                </div>
+                            </a>
+                        </li> -->
+                    </ul>
+                    <div class="as_right_info">
+                        <a href="javascript:;">
+                            <div class="as_infobox" data-bs-toggle="modal" data-bs-target="#as_login">
+                                <span class="as_infoicon">
+                                    <img src="assets/images/svg/login.svg" alt="">
+                                </span>
+                                <span class="as_logintext">Se connecter / S’inscrire</span>
+                            </div>
+                        </a>
+                        <!-- <div class="as_cart">
+                            <div class="as_cart_wrapper">
+                                <span><img src="assets/images/svg/cart.svg" alt=""><span class="as_cartnumber">02</span></span>
+                                $512
+                            </div>
+
+                            <div class="as_cart_box">
+								<div class="as_cart_list">
+									<ul>
+										<li>
+											<div class="as_cart_img">
+												<img src="assets/images/prod1_d.jpg" class="img-responsive">
+											</div>
+											<div class="as_cart_info">
+												<a href="#">Yellow Sapphire</a>
+												<p>1 X $20.00</p>
+												<a href="javascript:;" class="as_cart_remove"><i class="fa fa-trash"></i></a>
+											</div>
+										</li>
+										<li>
+											<div class="as_cart_img">
+												<img src="assets/images/prod2_D.html" class="img-responsive">
+											</div>
+											<div class="as_cart_info">
+												<a href="#">yantra</a>
+												<p>1 X $10.00</p>
+												<a href="javascript:;" class="as_cart_remove"><i class="fa fa-trash"></i></a>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="as_cart_total">
+									<p>total<span>$30.00</span></p>
+								</div>
+								<div class="as_cart_btn">
+									<button type="button" class="as_btn">panier</button>
+									<button type="button" class="as_btn">valider la commande</button>
+								</div>
+							</div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="as_menu_wrapper">
+                    <span class="as_toggle bg_overlay">
+                        <img src="assets/images/svg/menu.svg" alt="">
+                    </span>
+                    <div class="as_menu">
+                        <ul>
+                            <li><a href="index.html" class="active">Acceuil</a></li>
+                            <li><a href="about.html">À propos</a></li>
+                            <li><a href="service.html">services</a></li>
+                            <li><a href="javascript:;">blog</a>
+                                <ul class="as_submenu">
+                                    <li><a href="blog.html">blog</a></li>
+                                    <li><a href="javascript:;">Article de blog</a>
+                                        <ul class="as_submenu">
+                                            <!-- <li><a href="blog_left_detail.html">Barre latérale gauche</a></li> -->
+                                            <li><a href="blog_detail.html">Barre latérale droite</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="appointment.html">Rendez-vous</a></li>
+                            <li><a href="javascript:;">Boutique</a>
+                                <ul class="as_submenu">
+                                    <li><a href="shop.html">Boutique</a></li>
+                                    <!-- <li><a href="shop_single.html">Fiche produit</a></li>
+                                    <li><a href="cart.html">Panier</a></li>
+                                    <li><a href="checkout.html">Paiement</a></li> -->
+                                </ul>
+                            </li>
+                            <li><a href="javascript:;">pages</a>
+                                <ul class="as_submenu">
+                                    <!-- <li><a href="astrologer.html">Astrologie</a></li> -->
+                                    <li><a href="privacy_policy.html">Politique de confidentialité</a></li>
+                                    <li><a href="error.html">404</a></li>
+                                    <li><a href="faq.html">faq</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contact.html">contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="as_search_wrapper">
+                        <img src="assets/images/search.png" alt="" class="as_search">
+
+                        <div class="as_search_boxpopup">
+    <a href="javascript:;" class="as_cancel">...</a> <!-- Gardez le SVG du bouton fermer -->
+    <div class="as_search_inner">
+        <!-- TRANSFORMATION EN FORMULAIRE DE RECHERCHE -->
+        <form action="search-results.html" method="GET">
+            <div class="as_search_widget">
+                <input type="text" name="q" class="form-control" placeholder="Rechercher sur le site..." required>
+                <button type="submit" style="background: none; border: none; padding: 0;">
+                    <img src="assets/images/svg/search.svg" alt="Rechercher">
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+                    </div>
+                </div>
+                <span class="as_body_overlay"></span>
+            </div>  
+        </section>
+
+        <!-- Titre de la page -->
+        <section class="as_breadcrum_wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h1>Horoscope du Jour</h1>
+                        <ul class="as_breadcrum_user">
+                            <li><a href="index.html">Accueil</a></li>
+                            <li><a href="javascript:;">Horoscope du Jour</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contenu principal : Les horoscopes -->
+        <section class="as_padderTop80 as_padderBottom50">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Bélier -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="horoscope-card">
+                            <img src="assets/images/svg/sign1.svg" alt="Bélier" class="sign-icon">
+                            <h3>Bélier</h3>
+                            <p class="date-range">21 mars - 19 avril</p>
+                            <p><strong>Amour :</strong> Une rencontre inattendue pourrait pimenter votre journée. Soyez ouvert et spontané.
+                            <br><strong>Travail :</strong> Votre énergie est à son comble. C'est le moment idéal pour lancer de nouveaux projets et prendre des initiatives.
+                            <br><strong>Bien-être :</strong> Canalisez votre surplus d'énergie dans une activité physique.</p>
+                        </div>
+                    </div>
+
+                    <!-- Taureau -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="horoscope-card">
+                            <img src="assets/images/svg/sign2.svg" alt="Taureau" class="sign-icon">
+                            <h3>Taureau</h3>
+                            <p class="date-range">20 avril – 20 mai</p>
+                            <p><strong>Amour :</strong> La stabilité est au rendez-vous. Profitez de moments de tendresse avec votre partenaire.
+                            <br><strong>Travail :</strong> La patience est votre meilleure alliée aujourd'hui. Ne précipitez pas les choses, la persévérance paiera.
+                            <br><strong>Bien-être :</strong> Accordez-vous un moment de plaisir simple, comme un bon repas ou une balade dans la nature.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Gémeaux -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="horoscope-card">
+                            <img src="assets/images/svg/sign3.svg" alt="Gémeaux" class="sign-icon">
+                            <h3>Gémeaux</h3>
+                            <p class="date-range">21 mai – 20 juin</p>
+                            <p><strong>Amour :</strong> La communication est la clé. Un dialogue sincère résoudra un malentendu.
+                            <br><strong>Travail :</strong> Votre curiosité vous pousse à explorer de nouvelles idées. C'est une excellente journée pour le brainstorming.
+                            <br><strong>Bien-être :</strong> Nourrissez votre esprit avec une lecture ou un documentaire intéressant.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cancer -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="horoscope-card">
+                            <img src="assets/images/svg/sign4.svg" alt="Cancer" class="sign-icon">
+                            <h3>Cancer</h3>
+                            <p class="date-range">21 juin – 22 juillet</p>
+                            <p><strong>Amour :</strong> Votre intuition est forte. Écoutez votre cœur, il vous guidera vers les bonnes personnes.
+                            <br><strong>Travail :</strong> Concentrez-vous sur l'organisation de votre espace de travail. Un environnement clair favorisera votre efficacité.
+                            <br><strong>Bien-être :</strong> Prenez du temps pour vous, loin de l'agitation. Un bain relaxant serait parfait.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lion -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="horoscope-card">
+                            <img src="assets/images/svg/sign5.svg" alt="Lion" class="sign-icon">
+                            <h3>Lion</h3>
+                            <p class="date-range">23 juillet – 22 août</p>
+                            <p><strong>Amour :</strong> Votre charisme est magnétique. Vous ne laisserez personne indifférent aujourd'hui.
+                            <br><strong>Travail :</strong> Une opportunité de briller se présente. N'hésitez pas à prendre la parole et à montrer vos talents de leader.
+                            <br><strong>Bien-être :</strong> Faites quelque chose qui vous met en valeur et renforce votre confiance en vous.</p>
+                        </div>
+                    </div>
+
+                    <!-- Vierge -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="horoscope-card">
+                            <img src="assets/images/svg/sign6.svg" alt="Vierge" class="sign-icon">
+                            <h3>Vierge</h3>
+                            <p class="date-range">23 août – 22 septembre</p>
+                            <p><strong>Amour :</strong> Un petit geste attentionné aura un grand impact sur votre relation.
+                            <br><strong>Travail :</strong> Votre souci du détail est un atout majeur. C'est le moment de finaliser des dossiers importants.
+                            <br><strong>Bien-être :</strong> Mettez de l'ordre dans vos pensées en tenant un journal ou en faisant une liste de vos priorités.</p>
+                        </div>
+                    </div>
+
+                    <!-- Balance -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="horoscope-card">
+                            <img src="assets/images/svg/sign7.svg" alt="Balance" class="sign-icon">
+                            <h3>Balance</h3>
+                            <p class="date-range">23 septembre – 22 octobre</p>
+                            <p><strong>Amour :</strong> L'harmonie règne dans votre vie sentimentale. C'est une journée idéale pour un rendez-vous romantique.
+                            <br><strong>Travail :</strong> La collaboration est favorisée. Travaillez en équipe pour atteindre vos objectifs plus rapidement.
+                            <br><strong>Bien-être :</strong> Entourez-vous de beauté. Visitez une exposition d'art ou écoutez de la belle musique.</p>
+                        </div>
+                    </div>
+
+                    <!-- Scorpion -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="horoscope-card">
+                            <img src="assets/images/svg/sign8.svg" alt="Scorpion" class="sign-icon">
+                            <h3>Scorpion</h3>
+                            <p class="date-range">23 octobre – 21 novembre</p>
+                            <p><strong>Amour :</strong> La passion est intense. Laissez-vous guider par vos désirs, mais gardez une part de mystère.
+                            <br><strong>Travail :</strong> Votre détermination vous permet de surmonter un obstacle. Ne baissez pas les bras.
+                            <br><strong>Bien-être :</strong> Une activité qui demande de la concentration, comme un puzzle, vous aidera à vous recentrer.</p>
+                        </div>
+                    </div>
+
+                    <!-- Sagittaire -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="horoscope-card">
+                            <img src="assets/images/svg/sign9.svg" alt="Sagittaire" class="sign-icon">
+                            <h3>Sagittaire</h3>
+                            <p class="date-range">22 novembre – 21 décembre</p>
+                            <p><strong>Amour :</strong> L'aventure vous appelle. Proposez une sortie originale à votre partenaire ou à vos amis.
+                            <br><strong>Travail :</strong> Votre optimisme est contagieux et motive votre entourage. Partagez votre vision positive.
+                            <br><strong>Bien-être :</strong> Planifiez votre prochain voyage ou apprenez quelque chose de nouveau pour satisfaire votre soif de découverte.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Capricorne -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="horoscope-card">
+                            <img src="assets/images/svg/sign10.svg" alt="Capricorne" class="sign-icon">
+                            <h3>Capricorne</h3>
+                            <p class="date-range">22 décembre – 19 janvier</p>
+                            <p><strong>Amour :</strong> Le sérieux et l'engagement sont valorisés. Une discussion importante sur l'avenir pourrait avoir lieu.
+                            <br><strong>Travail :</strong> Votre rigueur est reconnue. On pourrait vous confier une mission de grande responsabilité.
+                            <br><strong>Bien-être :</strong> Fixez-vous un petit objectif personnel et atteignez-le pour un sentiment d'accomplissement.</p>
+                        </div>
+                    </div>
+
+                    <!-- Verseau -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="horoscope-card">
+                            <img src="assets/images/svg/sign11.svg" alt="Verseau" class="sign-icon">
+                            <h3>Verseau</h3>
+                            <p class="date-range">20 janvier – 18 février</p>
+                            <p><strong>Amour :</strong> L'originalité séduit. Soyez vous-même, votre singularité est votre plus grand charme.
+                            <br><strong>Travail :</strong> Une idée novatrice pourrait émerger. N'hésitez pas à penser hors des sentiers battus.
+                            <br><strong>Bien-être :</strong> Passez du temps avec des amis qui partagent vos centres d'intérêt.</p>
+                        </div>
+                    </div>
+
+                    <!-- Poissons -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="horoscope-card">
+                            <img src="assets/images/svg/sign12.svg" alt="Poissons" class="sign-icon">
+                            <h3>Poissons</h3>
+                            <p class="date-range">19 février – 20 mars</p>
+                            <p><strong>Amour :</strong> Votre sensibilité est à fleur de peau. Partagez vos émotions avec bienveillance.
+                            <br><strong>Travail :</strong> Votre créativité est décuplée. C'est une excellente journée pour les activités artistiques ou la résolution de problèmes.
+                            <br><strong>Bien-être :</strong> La méditation ou l'écoute de musique douce vous aidera à vous connecter à votre monde intérieur.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="as_footer_wrapper as_padderTop80">
+           <div class="container">
+                    <div class="as_newsletter_wrapper as_padderBottom60">
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
+                                <h1 class="as_heading">Notre Newsletter</h1>
+                                <p>Recevez votre horoscope quotidien, votre lovescope du jour et votre tirage de tarot<br>directement dans votre boîte mail.</p>
+                            </div>
+                            <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12">
+                                <div class="as_newsletter_box">
+                        <!-- La balise <form> doit contenir les champs et le bouton -->
+                        <form action="https://formspree.io/f/xrblqqno" method="POST" style="width: 100%; display: flex;">
+                            
+                            <!-- Champ pour l'e-mail -->
+                            <input type="email" name="email" class="form-control" placeholder="Entrez votre e-mail ici..." required>
+                            
+                            <!-- Bouton de soumission -->
+                            <button type="submit" class="as_btn">S’abonner maintenant</button>
+                            
+                        </form>
+                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="as_footer_inner as_padderTop50 as_padderBottom80">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="as_footer_widget">
+                                <div class="as_footer_logo">
+                                    <a href="index.html"><img src="assets/images/lelogo.png" alt=""></a>
+                                </div>
+                                <p>Plongez dans l'univers mystique des astres et découvrez les secrets de votre destinée.</p>
+
+                                <div class="as_share_box">
+                            <p>Suivez-nous</p>
+                            <ul>
+        <!-- Facebook -->
+        <li>
+            <a href="https://www.facebook.com/share/16zzMaJ52d/" target="_blank">
+                <img src="assets/images/svg/facebook.svg" alt="Facebook">
+            </a>
+        </li>
+
+        <!-- WhatsApp (remplace Twitter) -->
+        <li>
+            <a href="https://wa.me/22384876466" target="_blank">
+                <img src="assets/images/svg/whatsApp.svg" alt="WhatsApp">
+            </a>
+        </li>
+
+        <!-- TikTok (remplace Google+) -->
+        <li>
+            <a href="https://www.tiktok.com/@spiritualitelegale" target="_blank">
+                <img src="assets/images/svg/tiktok.svg" alt="TikTok">
+            </a>
+        </li>
+
+        <!-- Instagram (NOUVEAU) -->
+        <li>
+            <a href="https://www.instagram.com/spiritualiteprofonde" target="_blank">
+                <img src="assets/images/svg/instagram.svg" alt="Instagram">
+            </a>
+        </li>
+
+        <!-- YouTube -->
+        <li>
+            <a href="https://youtube.com/@spiritualitesante-officiel" target="_blank">
+                <img src="assets/images/svg/youtube.svg" alt="YouTube">
+            </a>
+        </li>
+    </ul>
+                        </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="as_footer_widget">
+                               <h3 class="as_footer_heading">Nos Services</h3>
+
+                               <ul>
+                                   <li><a href="service_detail.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Horoscopes</a></li>
+                                   <li><a href="service_detail.html">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Pierres précieuses</a></li>
+                                   <li><a href="service_detail.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Numérologie</a></li>
+                                   <li><a href="service_detail.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Cartes de tarot</a></li>
+                                   <li><a href="service_detail.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> journal de naissance</a></li>
+                               </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="as_footer_widget">
+                               <h3 class="as_footer_heading">Liens rapides</h3>
+
+                               <ul>
+                                   <li><a href="about.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> À propos</a></li>
+                                   <li><a href="blog.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Blog</a></li>
+                                   <li><a href="astrologer.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Astrologues</a></li>
+                                   <li><a href="appointment.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span>Prendre rendez-vous</a></li>
+                                   <li><a href="contact.html"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"> <path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span> Contact Nous</a></li>
+                               </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="as_footer_widget">
+                               <h3 class="as_footer_heading"> Contactez-nous</h3>
+
+                               <ul class="as_contact_list">
+                                   <li>
+                                       <img src="assets/images/svg/map.svg" alt="">
+                                        <p>1356 Broad Street, Lagos Island, Lagos, Nigeria</p>
+                                    </li>
+                                   <li>
+                                       <img src="assets/images/svg/address.svg" alt="">
+                                        <p>
+                                            <a href="mailto:contact.spiritualiteprofonde@gmail.com">contact.spiritualiteprofonde@gmail.com</a>
+                                            <!-- <a href="javascript:;"><span class="__cf_email__" data-cfemail="b1d0c2c5c3def1d4c9d0dcc1ddd49fd2dedc">[adresse email&#160;protégée]</span></a> -->
+                                        </p> 
+                                    </li> 
+                                   <li>
+                                       <img src="assets/images/svg/call.svg" alt="">
+                                        <p>
+                                            <a href="tel:+22384876466">+22384876466</a><br>
+                                    <!-- <a href="tel:+1800326324">+ (1) 800-326-324</a> -->
+                                        </p>
+                                    </li>
+                               </ul>
+                            </div>
+                        </div>
+                        </div>
+                        
+                    </div>
+            </div>
+        </section>
+        <section class="as_copyright_wrapper text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p> Droit d’auteur &copy;  2022 Astrologie. Tous droits réservés. </p>
+                    </div>
+                </div>
+            </div>
+        </section> 
+    </div>
+    
+
+     <!-- Modal -->
+      <div id="as_login" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                    <h4 class="modal-title">Connexion</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="as_login_box active">
+                        <form action="#">
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Enter email" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Enter password here" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <div class="as_login_data">
+                                    <label>Se souvenir de moi
+                                         <input type="checkbox" name="as_remember_me" value="">
+                                         <span class="checkmark"></span>
+                                    </label>
+                                    <a href="#">Mot de passe oublié ?</a>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <a href="javascript:;" class="as_btn">Se connecter</a>
+                            </div>
+                        </form>
+                        <p class="text-center as_margin0 as_padderTop20">Pas encore de compte ?<a href="javascript:;" class="as_orange as_signup">Créer un compte</a></p>
+                    </div>
+                    <div class="as_signup_box">
+                        <form action="#">
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Entrez votre nom" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Entrez votre e-mail" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Entrez votre mot de passe" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="" placeholder="Entrez votre numéro de téléphone" class="form-control" id="">
+                            </div>
+                            <div class="form-group">
+                                <select name="" class="form-control" id="">
+                                    <option value="homme">homme</option>
+                                    <option value="Femme">Femme</option>
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <a href="javascript:;" class="as_btn">S'inscrire</a>
+                            </div>
+                        </form>
+                        <p class="text-center as_margin0 as_padderTop20">Vous avez déjà un compte ?  <a href="javascript:;" class="as_orange as_login">Connexion</a></p>
+                    </div> 
+                </div>
+            </div>
+    
+        </div>
+    </div>
+
+    <!-- javascript -->
+    <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery.min.js" type="04ea1cd2a90ef7a9aedc3620-text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="04ea1cd2a90ef7a9aedc3620-text/javascript"></script>
+    <script type="04ea1cd2a90ef7a9aedc3620-text/javascript" src="assets/js/plugin/slick/slick.min.js"></script>
+    <script type="04ea1cd2a90ef7a9aedc3620-text/javascript" src="assets/js/plugin/countto/jquery.countTo.js"></script>
+    <script type="04ea1cd2a90ef7a9aedc3620-text/javascript" src="assets/js/plugin/airdatepicker/datepicker.min.js"></script>
+    <script type="04ea1cd2a90ef7a9aedc3620-text/javascript" src="assets/js/plugin/airdatepicker/i18n/datepicker.en.js"></script>
+    <script type="04ea1cd2a90ef7a9aedc3620-text/javascript" src="assets/js/plugin/select2/select2.min.js"></script>
+    <script src="assets/js/custom.js" type="04ea1cd2a90ef7a9aedc3620-text/javascript"></script>  
+<script src="../../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="04ea1cd2a90ef7a9aedc3620-|49" defer></script></body>
+</html>
