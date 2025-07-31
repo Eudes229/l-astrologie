@@ -3099,3 +3099,31 @@ textarea.form-control {
     width: 20px; /* Ou la taille que vous préférez */
     height: 20px; /* Ou la taille que vous préférez */
 }
+/* --- STYLE POUR LE BOUTON WHATSAPP DANS LE HEADER --- */
+.bouton-whatsapp-header {
+    display: flex; /* Aligne l'icône et le texte */
+    align-items: center; /* Centre verticalement */
+    background-color: #25D366; /* Vert WhatsApp */
+    color: #ffffff; /* Texte en blanc */
+    padding: 8px 15px; /* Espace intérieur pour le confort visuel */
+    border-radius: 5px; /* Coins légèrement arrondis */
+    text-decoration: none; /* Enlève le soulignement du lien */
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease; /* Effet de transition doux */
+}
+
+.bouton-whatsapp-header:hover {
+    background-color: #128C7E; /* Vert plus foncé au survol */
+    color: #ffffff; /* Le texte reste blanc */
+}
+
+.bouton-whatsapp-header svg {
+    margin-right: 8px; /* Espace entre l'icône et le texte */
+}
+
+/* Ajustement pour la position dans le header */
+.as_right_info {
+    display: flex;
+    align-items: center;
+}
