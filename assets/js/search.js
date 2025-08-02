@@ -1,105 +1,87 @@
-// Fichier : assets/js/search.js
-
-document.addEventListener('DOMContentLoaded', async () => {
-    
-    // =====================================================================
-    //  ACTION REQUISE : LISTEZ ICI TOUTES LES PAGES DE VOTRE SITE
-    // =====================================================================
-    const pagesToIndex = [
-        { url: 'index.html', title: 'Accueil' },
-        { url: 'about.html', title: 'À Propos de Nous' },
-        { url: 'service.html', title: 'Nos Services' },
-        { url: 'retour-affectif.html', title: 'Rituel de Retour Affectif' },
-        { url: 'blog.html', title: 'Blog Spirituel' },
-        { url: 'blog_detail.html', title: 'Article de Blog' },
-        { url: 'shop.html', title: 'Boutique Spirituelle' },
-        { url: 'contact.html', title: 'Contactez-Nous' },
-        { url: 'appointment.html', title: 'Prendre Rendez-vous' },
-        { url: 'privacy_policy.html', title: 'Politique de Confidentialité'},
-        { url: 'faq.html', title: 'Foire Aux Questions'}
-        // Ajoutez vos autres pages ici en suivant le même format
-        // { url: 'nom-du-fichier.html', title: 'Titre de la Page' },
+document.addEventListener("DOMContentLoaded", async function () {
+    const pages = [
+        { url: 'index.html', title: 'Accueil - Astrologie Spirituelle', keywords: 'astrologie, guidance, tarot, horoscope' },
+        { url: 'about.html', title: 'À Propos de Nous', keywords: 'équipe, mission, astrologue, expert' },
+        { url: 'service.html', title: 'Nos Services de Voyance', keywords: 'consultation, rituel, tarot, chiromancie' },
+        { url: 'retour-affectif.html', title: 'Rituel de Retour Affectif', keywords: 'amour, faire revenir son ex, couple, magie blanche' },
+        { url: 'rituels_chance_detail.html', title: 'Rituels de Chance et Déblocage', keywords: 'argent, chance, abondance, prospérité, déblocage' },
+        { url: 'lecture_tarot_detail.html', title: 'Tirage de Tarot en Ligne', keywords: 'cartes, cartomancie, avenir, amour, travail' },
+        { url: 'chiromancie.html', title: 'Chiromancie - Lire les Lignes de la Main', keywords: 'main, ligne de vie, ligne de coeur, destinée' },
+        { url: 'geomancie.html', title: 'Géomancie Africaine (Le Fâ)', keywords: 'fâ, ifa, divination, destin, bokonon' },
+        { url: 'boule_de_cristal_detail.html', title: 'Voyance par Boule de Cristal', keywords: 'cristallomancie, voyant, visions, avenir' },
+        { url: 'numérologie.html', title: 'Numérologie - Calcul du Chemin de Vie', keywords: 'nombres, chemin de vie, date de naissance, signification' },
+        { url: 'jours_naissance.html', title: 'Signification des Jours de Naissance', keywords: 'lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche' },
+        { url: 'horoscope_journalier.html', title: 'Horoscope du Jour Gratuit', keywords: 'bélier, taureau, gémeaux, cancer, lion, vierge, balance, scorpion, sagittaire, capricorne, verseau, poissons' },
+        { url: 'blog.html', title: 'Notre Blog Spirituel', keywords: 'articles, guide, apprendre, spiritualité' },
+        { url: 'shop.html', title: 'Boutique Ésotérique', keywords: 'acheter, sauge, encens, pierres, amulettes' },
+        { url: 'contact.html', title: 'Nous Contacter', keywords: 'téléphone, email, adresse, contact' }
     ];
-    // =====================================================================
 
-    let searchIndex = [];
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get('q')?.toLowerCase().trim();
 
-    async function createSearchIndex() {
-        const cachedIndex = sessionStorage.getItem('searchIndex');
-        if (cachedIndex) {
-            searchIndex = JSON.parse(cachedIndex);
-            return;
-        }
+    const titleElement = document.getElementById('search-query-title');
+    const resultsContainer = document.getElementById('search-results-container');
 
-        for (const page of pagesToIndex) {
-            try {
-                const response = await fetch(page.url);
-                if (!response.ok) continue; // Ignore les pages qui n'existent pas
-                const html = await response.text();
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                const content = doc.body.innerText.replace(/\s\s+/g, ' ').trim();
-                
-                searchIndex.push({
-                    url: page.url,
-                    title: doc.querySelector('title') ? doc.querySelector('title').innerText : page.title,
-                    content: content.toLowerCase()
-                });
-            } catch (error) {
-                console.error(`Impossible de charger ${page.url} pour l'indexation.`, error);
-            }
-        }
-        sessionStorage.setItem('searchIndex', JSON.stringify(searchIndex));
+    if (titleElement) {
+        titleElement.innerHTML = `Résultats de recherche pour "<span class="as_orange">${query || ''}</span>"`;
     }
 
-    function performSearch(query) {
-        const resultsContainer = document.getElementById('search-results-container');
-        const queryTitle = document.getElementById('search-query-title');
-        
-        if (!resultsContainer || !queryTitle) return;
+    if (!query) {
+        resultsContainer.innerHTML = '<p class="text-center">Veuillez entrer un terme à rechercher.</p>';
+        return;
+    }
 
-        const lowerCaseQuery = query.toLowerCase();
-        queryTitle.textContent = `Résultats pour : "${query}"`;
+    let foundResults = [];
 
-        const results = searchIndex.filter(page => {
-            return page.title.toLowerCase().includes(lowerCaseQuery) || page.content.includes(lowerCaseQuery);
-        });
+    // On utilise Promise.all pour charger toutes les pages en parallèle
+    await Promise.all(pages.map(async (page) => {
+        try {
+            const response = await fetch(page.url);
+            if (!response.ok) return;
+            const text = await response.text();
+            
+            // On recherche dans le titre, les mots-clés et le contenu de la page
+            const pageContent = text.toLowerCase();
+            const titleMatch = page.title.toLowerCase().includes(query);
+            const keywordMatch = page.keywords.toLowerCase().includes(query);
+            const contentMatch = pageContent.includes(query);
 
-        resultsContainer.innerHTML = '';
-
-        if (results.length > 0) {
-            results.forEach(result => {
-                const resultElement = document.createElement('div');
-                resultElement.className = 'as_search_result_item as_padderBottom30';
-                // Affichage du résultat avec un extrait du contenu
-                let excerpt = '';
-                const matchIndex = result.content.indexOf(lowerCaseQuery);
-                if (matchIndex > -1) {
-                    const startIndex = Math.max(0, matchIndex - 80);
-                    const endIndex = Math.min(result.content.length, matchIndex + 80);
-                    excerpt = `...${result.content.substring(startIndex, endIndex)}...`;
+            if (titleMatch || keywordMatch || contentMatch) {
+                // Extrait un petit bout de texte autour du mot trouvé
+                let snippet = '';
+                const index = pageContent.indexOf(query);
+                if (index > -1) {
+                    const start = Math.max(0, index - 50);
+                    const end = Math.min(pageContent.length, index + 150);
+                    snippet = '...' + pageContent.substring(start, end).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ') + '...';
                 }
 
-                resultElement.innerHTML = `
-                    <h4 class="as_subheading"><a href="${result.url}">${result.title}</a></h4>
-                    <p class="as_font14">${excerpt}</p>
-                    <a href="${result.url}" class="as_link">Lire la suite</a>
-                `;
-                resultsContainer.appendChild(resultElement);
-            });
-        } else {
-            resultsContainer.innerHTML = '<p class="text-center">Aucun résultat trouvé pour votre recherche.</p>';
+                foundResults.push({
+                    url: page.url,
+                    title: page.title,
+                    snippet: snippet
+                });
+            }
+        } catch (error) {
+            console.error(`Erreur lors du chargement de la page ${page.url}:`, error);
         }
-    }
+    }));
 
-    if (document.getElementById('search-results-container')) {
-        await createSearchIndex();
-        const urlParams = new URLSearchParams(window.location.search);
-        const query = urlParams.get('q');
-        if (query) {
-            performSearch(query);
-        } else {
-             document.getElementById('search-results-container').innerHTML = '<p class="text-center">Veuillez entrer un terme à rechercher.</p>';
-        }
+    if (foundResults.length > 0) {
+        let html = `<h4>${foundResults.length} résultat(s) trouvé(s) :</h4>`;
+        html += '<ul class="as_search_list">';
+        foundResults.forEach(result => {
+            html += `
+                <li>
+                    <h3 class="as_subheading"><a href="${result.url}">${result.title}</a></h3>
+                    <p>${result.snippet || 'Aucun extrait disponible.'}</p>
+                </li>
+            `;
+        });
+        html += '</ul>';
+        resultsContainer.innerHTML = html;
+    } else {
+        resultsContainer.innerHTML = '<p class="text-center">Aucun résultat trouvé pour votre recherche. Essayez avec d\'autres mots-clés ou <a href="contact.html">contactez-nous</a> si vous ne trouvez pas ce que vous cherchez.</p>';
     }
 });
