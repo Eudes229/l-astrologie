@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://spiritualiteoriginelle.netlify.app/sitemap.xml
+Sitemap: https://www.spiritualiteoriginelle.com/sitemap.xml
