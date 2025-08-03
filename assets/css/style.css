@@ -3127,3 +3127,70 @@ textarea.form-control {
     display: flex;
     align-items: center;
 }
+/* ========================================================
+   STYLES POUR LES ICÔNES DE RÉSEAUX SOCIAUX FLOTTANTES
+   ======================================================== */
+
+.social-icons-floating {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+
+.social-icons-floating .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Style pour les images à l'intérieur des cercles */
+.social-icons-floating .social-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Effet au survol */
+.social-icons-floating .social-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 136, 26, 0.7);
+}
+
+/* Couleurs spécifiques par réseau au survol */
+.social-icons-floating .social-icon.whatsapp:hover { background-color: #25D366; }
+.social-icons-floating .social-icon.facebook:hover { background-color: #1877F2; }
+.social-icons-floating .social-icon.tiktok:hover { background-color: #000000; }
+.social-icons-floating .social-icon.youtube:hover { background-color: #FF0000; }
+.social-icons-floating .social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+
+/* Pour les petits écrans (mobiles) */
+@media (max-width: 767px) {
+    .social-icons-floating {
+        top: auto;
+        bottom: 20px;
+        right: 10px;
+        flex-direction: row;
+        transform: none;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 5px;
+        border-radius: 50px;
+    }
+    .social-icons-floating .social-icon {
+        width: 40px;
+        height: 40px;
+    }
+    .social-icons-floating .social-icon img {
+        width: 20px;
+        height: 20px;
+    }
+}
