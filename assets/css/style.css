@@ -3194,3 +3194,21 @@ textarea.form-control {
         height: 20px;
     }
 }
+/* Styles pour les boutons d'action multiples */
+.as_action_buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espace entre les boutons */
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur mobile */
+}
+
+/* Style optionnel pour le bouton WhatsApp pour le différencier */
+.as_btn_whatsapp {
+    background-color: #25D366; /* Vert WhatsApp */
+    border-color: #25D366;
+}
+
+.as_btn_whatsapp:hover {
+    background-color: #128C7E; /* Vert WhatsApp plus foncé au survol */
+    border-color: #128C7E;
+}
